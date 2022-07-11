@@ -1,6 +1,6 @@
 import  'reflect-metadata'
-import { UploadedFiles as UploadedFile } from '@prisma/client';
 import { inject, injectable } from "tsyringe";
+import { UploadedFiles as UploadedFile } from '@prisma/client'
 import { AppError } from "../../../../shared/errors/AppError";
 
 import { IUsersRepository } from '../../../users/repositories/IUsersRepository';
@@ -23,7 +23,7 @@ export class UploadFilesPostUseCase {
     private uploadedFilesRepository: IUploadedFilesRepository,
   ) {}
 
-  async execute({ user_id, post_id, files }: IUploadFilesPostDTO): Promise<void> {
+  async execute({ user_id, post_id, files }: IUploadFilesPostDTO): Promise<UploadedFile[]> {
     const user = await this.usersRepository.findById(user_id)
 
     if (!user) {
@@ -40,13 +40,19 @@ export class UploadFilesPostUseCase {
       throw new AppError('Only owner post can be upload files!', 401);
     }
 
+    let uploadedFile: UploadedFile[] = []
+
     if (files && files.length > 0) {
       files.map(async file => {
-        await this.uploadedFilesRepository.create({
+        const uploadFile = await this.uploadedFilesRepository.create({
           post_id: post.id,
           path: file.filename
         })
+
+        uploadedFile.push(uploadFile)
       })
     }
+
+    return uploadedFile
   }
 }

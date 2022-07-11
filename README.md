@@ -126,6 +126,7 @@ e enviar o arquivo de configuração;
 <img src="./assets/postsTests/updatePost.png" />
 <img src="./assets/postsTests/updateViewsPost.png" />
 <img src="./assets/postsTests/sendEmailReceivedPost.png" />
+<img src="./assets/postsTests/uploadFiles.png" />
 
 <br />
 

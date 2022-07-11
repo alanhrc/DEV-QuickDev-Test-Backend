@@ -8,6 +8,8 @@ export class UploadFilesPostController {
     const { user_id } = request.user
     const { post_id } = request.params
 
+    return response.json(request.files)
+
     const uploadFilesPostUseCase = container.resolve(UploadFilesPostUseCase);
 
     await uploadFilesPostUseCase.execute({
