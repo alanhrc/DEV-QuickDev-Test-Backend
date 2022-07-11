@@ -25,6 +25,7 @@ This application features tools backend development!
 3. Run `npm install` to install dependencies<br />
 4. Configure variables PROVIDER and URL in `prisma/schema.prisma` for access database<br />
 5. Run `npx prisma migrate dev` to create columns database
+6. Contains a file `Insomnia` with routes and params project to test manually
 
 ### Getting started with the backend server
 
