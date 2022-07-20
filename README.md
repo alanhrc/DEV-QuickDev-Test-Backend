@@ -21,7 +21,7 @@ This application features tools backend development!
 ## Getting started
 
 1. Clone this repo using `git clone git@github.com:alanhrc/DEV-QuickDev-Test-Backend.git`
-2. Move yourself to the appropriate directory: `cd DEV-QuickDev-Test-Backend`<br />
+2. Move yourself to the appropriate directory: `cd DEV-QuikDev-Test-Backend`<br />
 3. Run `npm install` to install dependencies<br />
 4. Configure variables PROVIDER and URL in `prisma/schema.prisma` for access database<br />
 5. Run `npx prisma migrate dev` to create columns database
